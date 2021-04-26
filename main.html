@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Basics</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+  <nav>
+    <div class="nav-wrapper #ffa000 amber darken-2">
+      <a href="#" class="brand-logo">Job Portal</a>
+      <ul id="nav-mobile" class="right">
+        <li><a class="modal-trigger" href="#modal2">Login</a></li>
+        <li><a class="modal-trigger" href="#modal1">SignUp</a></li>
+        <li><a href="collapsible.html">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+    <!-- Signup Modal -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+          <h4>SignUp</h4>
+          <form onsubmit="signup(event)">
+            <input type="email" id="signupEmail" placeholder="Email">
+            <input type="password" id="signupPassword" placeholder="Password">
+            <button type="submit" class="btn waves-effect #ffa000 amber darken-2">SignUp</button>
+          </form>
+        </div>
+      </div>
+
+        <!-- Login Modal -->
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+          <h4>Login</h4>
+          <form >
+            <input type="email" id="signupEmail" placeholder="Email">
+            <input type="password" id="signupPassword" placeholder="Password">
+            <button type="submit" class="btn waves-effect #ffa000 amber darken-2">Login</button>
+          </form>
+        </div>
+      </div>
+    
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      <script>
+          document.addEventListener('DOMContentLoaded', function() {
+          var elems = document.querySelectorAll('.modal');
+          var instances = M.Modal.init(elems);
+  });
+    </script>  
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+
+
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyDMC7NqkomarD5m-RgK6jWgh_prKoboRxQ",
+    authDomain: "fir-basics-b2dff.firebaseapp.com",
+    projectId: "fir-basics-b2dff",
+    storageBucket: "fir-basics-b2dff.appspot.com",
+    messagingSenderId: "403915072893",
+    appId: "1:403915072893:web:612f9625f639bf420e1814",
+    measurementId: "G-QNBFLGQC42"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+<script src="scripts.js/auth.js"></script>
+</body>
+</html>
