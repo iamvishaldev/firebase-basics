@@ -23,7 +23,6 @@ async function signup(e) {
 }
 
 // Login
-
 async function Login(e) {
   e.preventDefault();
   const email = document.querySelector("#loginEmail");
@@ -43,4 +42,31 @@ async function Login(e) {
   email.value = "";
   password.value = "";
   M.Modal.getInstance(myModel[1]).close();
+}
+
+// LogOut
+function logout() {
+  firebase.auth().signOut();
+}
+
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    console.log(user);
+    // ...
+  } else {
+    console.log("signout success");
+    M.toast({ html: "signout success", classes: "green" });
+  }
+});
+
+// google auth
+async function logInWithGoogle() {
+  try {
+    var provider = new firebase.auth.GoogleAuthProvider();
+
+    const result = await firebase.auth().signInWithPopup(provider);
+    console.log(result);
+  } catch (error) {
+    console.log(error);
+  }
 }
