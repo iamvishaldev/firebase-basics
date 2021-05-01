@@ -12,6 +12,11 @@ async function signup(e) {
       .auth()
       .createUserWithEmailAndPassword(email.value, password.value);
     console.log(result);
+    await result.user.updateProfile({
+      displayName: "User",
+    });
+    createUserCollection(result.user);
+    // await result.user.sendEmailVerification();
     M.toast({ html: `Welcome ${result.user.email}`, classes: "green" });
   } catch (err) {
     console.log(err);
